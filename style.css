@@ -386,7 +386,7 @@ dl div:has(a):hover dd { color: var(--rose-600); }
 }
 
 .popup-btn:hover {
-    background-color: var(--gold);
+    background-color: var(--pink-500);
 }
 
 .popup-btn:active {
