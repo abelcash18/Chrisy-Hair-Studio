@@ -18,7 +18,12 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+/* FIX 1: Add scroll-padding-top to prevent the sticky header from blocking section views */
+html { 
+  scroll-behavior: smooth; 
+  scroll-padding-top: 90px; 
+}
 
 body {
   margin: 0;
@@ -201,7 +206,7 @@ blockquote cite { color: var(--rose-600); font-style: normal; font-weight: 900; 
 .contact-wrap { display: grid; grid-template-columns: 0.94fr 1.06fr; gap: 40px; padding: 48px; border-radius: 38px; background: linear-gradient(135deg, #fff, #fff5fa); }
 .contact-copy p:not(.eyebrow) { color: var(--muted); margin: 16px 0 0; }
 
-.contact-card { background: #white; border-radius: 26px; padding: 28px; border: 1px solid rgba(236, 72, 153, 0.14); box-shadow: var(--soft-shadow); }
+.contact-card { background: #ffffff; border-radius: 26px; padding: 28px; border: 1px solid rgba(236, 72, 153, 0.14); box-shadow: var(--soft-shadow); }
 dl { margin: 0; display: grid; gap: 4px; }
 dl div { display: grid; grid-template-columns: 110px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(236, 72, 153, 0.08); transition: background-color 150ms ease; }
 dl div:last-child { border-bottom: 0; }
@@ -219,53 +224,11 @@ dl div:has(a):hover dd { color: var(--rose-600); }
 
 .footer-links { display: flex; flex-wrap: wrap; gap: 16px; justify-content: flex-end; }
 .footer-links a { color: rgba(255, 255, 255, 0.72); font-weight: 700; font-size: 0.95rem; transition: color 150ms ease; }
-.footer-links a:hover { color: #white; }
+.footer-links a:hover { color: #ffffff; }
 
 .copyright { width: min(1120px, calc(100% - 40px)); margin: 34px auto 0 !important; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.88rem; color: rgba(255, 255, 255, 0.5); }
 
-/* Responsive Media Queries */
-@media (max-width: 900px) {
-  .container { width: min(100% - 30px, 760px); }
-  .section-pad { padding: 64px 0; }
-  
-  .nav-wrap { width: min(100% - 28px, 760px); }
-  .menu-button { display: inline-grid; gap: 5px; padding: 10px; border-radius: 12px; background: var(--pink-100); }
-  .menu-button span { display: block; width: 22px; height: 2px; background: var(--rose-600); border-radius: 999px; }
-  
-  .nav-links { position: absolute; top: 75px; left: 14px; right: 14px; display: none; flex-direction: column; padding: 14px; border-radius: 22px; background: white; box-shadow: var(--shadow); border: 1px solid rgba(236, 72, 153, 0.12); }
-  .nav-links a { width: 100%; text-align: center; }
-  .menu-toggle:checked ~ .nav-links { display: flex; }
-  
-  .hero { padding-top: 72px; }
-  .hero-grid, .about-grid, .contact-wrap { grid-template-columns: 1fr; }
-  .hero-grid { gap: 36px; }
-  
-  .portrait-image { aspect-ratio: 4/5; max-height: 500px; }
-  .floating-card { position: static; margin-top: 12px; width: max-content; max-width: 100%; }
-  
-  .product-grid { grid-template-columns: 1fr; gap: 20px; }
-  .product-card, .feature-wide { grid-column: auto; }
-  .product-image { height: 240px; }
-  
-  .review-grid { grid-template-columns: 1fr; gap: 16px; }
-  .contact-wrap { padding: 28px; }
-  
-  .footer-grid { flex-direction: column; gap: 24px; }
-  .footer-links { justify-content: flex-start; }
-}
-
-@media (max-width: 560px) {
-  h1 { font-size: clamp(2.55rem, 14vw, 3.5rem); }
-  h2 { font-size: clamp(2rem, 11vw, 2.8rem); }
-  
-  .hero-actions, .contact-actions { flex-direction: column; }
-  .btn { width: 100%; }
-  
-  .about-card { padding: 28px; }
-  dl div { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
-  .product-image { height: 200px; }
-}
-
+/* Dynamic Modal/Popup System Components */
 .popup-overlay {
     display: none; 
     position: fixed;
@@ -331,12 +294,11 @@ dl div:has(a):hover dd { color: var(--rose-600); }
 
 .popup-body {
     padding: 24px;
-    font-family: var(--sans);
 }
 
 .popup-badge {
     display: inline-block;
-    color: #0e0e0e;
+    color: var(--rose-600);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -360,7 +322,7 @@ dl div:has(a):hover dd { color: var(--rose-600); }
 .current-price {
     font-size: 20px;
     font-weight: 700;
-    color: #060606;
+    color: var(--rose-600);
 }
 
 .old-price {
@@ -375,7 +337,7 @@ dl div:has(a):hover dd { color: var(--rose-600); }
     align-items: center;
     width: 100%;
     padding: 14px;
-    background-color: #0b0b0b;
+    background: linear-gradient(135deg, var(--pink-500), var(--rose-600));
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
@@ -386,7 +348,7 @@ dl div:has(a):hover dd { color: var(--rose-600); }
 }
 
 .popup-btn:hover {
-    background-color: var(--pink-500);
+    box-shadow: 0 10px 20px rgba(236, 72, 153, 0.2);
 }
 
 .popup-btn:active {
@@ -404,14 +366,46 @@ dl div:has(a):hover dd { color: var(--rose-600); }
     }
 }
 
-@media (max-width: 768px) {
-  .about-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-  }
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  .container { width: min(100% - 30px, 760px); }
+  .section-pad { padding: 64px 0; }
+  
+  .nav-wrap { width: min(100% - 28px, 760px); }
+  .menu-button { display: inline-grid; gap: 5px; padding: 10px; border-radius: 12px; background: var(--pink-100); }
+  .menu-button span { display: block; width: 22px; height: 2px; background: var(--rose-600); border-radius: 999px; }
+  
+  .nav-links { position: absolute; top: 75px; left: 14px; right: 14px; display: none; flex-direction: column; padding: 14px; border-radius: 22px; background: white; box-shadow: var(--shadow); border: 1px solid rgba(236, 72, 153, 0.12); }
+  .nav-links a { width: 100%; text-align: center; }
+  .menu-toggle:checked ~ .nav-links { display: flex; }
+  
+  .hero { padding-top: 72px; }
+  .hero-grid, .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+  .hero-grid { gap: 36px; }
+  
+  .portrait-image { aspect-ratio: 4/5; max-height: 500px; }
+  .floating-card { position: static; margin-top: 12px; width: max-content; max-width: 100%; }
+  
+  .product-grid { grid-template-columns: 1fr; gap: 20px; }
+  .product-card, .feature-wide { grid-column: auto; }
+  .product-image { height: 240px; }
+  
+  .review-grid { grid-template-columns: 1fr; gap: 16px; }
+  .contact-wrap { padding: 28px; }
+  
+  .footer-grid { flex-direction: column; gap: 24px; }
+  .footer-links { justify-content: flex-start; }
+}
+
+/* FIX 2: Optimized responsive styling. Cleaned up the conflicting 768px break block */
+@media (max-width: 560px) {
+  h1 { font-size: clamp(2.55rem, 14vw, 3.5rem); }
+  h2 { font-size: clamp(2rem, 11vw, 2.8rem); }
+  
+  .hero-actions, .contact-actions { flex-direction: column; }
+  .btn { width: 100%; }
+  
+  .about-card { padding: 28px; }
+  dl div { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+  .product-image { height: 200px; }
 }
