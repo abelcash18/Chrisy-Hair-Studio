@@ -30,3 +30,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+// --- 5. New Arrival Popup Trigger ---
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("customPopup");
+  const closeBtn = document.querySelector(".popup-close-btn");
+
+  if (popup) {
+    setTimeout(() => {
+      popup.style.display = "flex";
+    }, 1500);
+
+    function closePopup() {
+      popup.style.display = "none";
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closePopup);
+    }
+
+    popup.addEventListener("click", function (e) {
+      if (e.target === popup) {
+        closePopup();
+      }
+    });
+  }
+});
