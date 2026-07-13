@@ -4,16 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chrisy Hair Studio | Premium Hair & Beauty Essentials</title>
-   <link rel="icon" href="assets/favicon.jpg">
+  <link rel="icon" href="assets/favicon.jpg">
   <link rel="icon" type="image/jpg" sizes="32x32" href="assets/favicon-32x32.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.jpg">
   <link rel="icon" type="image/png" sizes="180x180" href="assets/apple-touch-icon.jpg">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header" id="home">
+  <!-- Added an explicit ID target to make sure logo and footer navigation jump smoothly to top -->
+  <header class="site-header" id="home-top">
     <nav class="nav-wrap" aria-label="Primary navigation">
-      <a class="brand" href="#home" aria-label="Chrisy Hair Studio home">
+      <a class="brand" href="#home-top" aria-label="Chrisy Hair Studio home">
         <img class="brand-logo" src="assets/chrisy-logo.jpg" alt="Chrisy Hair Studio logo" />
         <span>Chrisy Hair Studio</span>
       </a>
@@ -28,12 +29,12 @@
     </nav>
   </header>
 
-   <!-- Custom Popup Overlay -->
+   <!-- Custom Popup Overlay (Fixed unclosed image structure) -->
     <div id="customPopup" class="popup-overlay">
       <div class="popup-content">
         <span class="popup-close-btn" aria-label="Close popup">&times;</span>
-        <a href="assets/wins.jpg" aria-label="View styled trouser full size">
-          <img src="assets/wins.jpg" alt="Special Offer - Styled Trouser" class="popup-img">
+        <a href="assets/wins.jpg" aria-label="View styled luxury hair full size">
+          <img src="assets/wins.jpg" alt="Special Offer - Luxury Hair" class="popup-img" />
         </a>
         <div class="popup-body">
           <span class="popup-badge">✨ NEW ARRIVAL</span>
@@ -46,7 +47,6 @@
         </div>
       </div>
     </div>
-
 
   <main>
     <section class="hero section-pad">
@@ -69,8 +69,7 @@
         </div>
         <div class="hero-visual" aria-label="Featured hair image">
           <div class="portrait-card">
-            <!-- Tip: Replace with a stunning .jpg or .webp model photo -->
-          <a href="assets/wigg2.jpg"><img class="portrait-image" src="assets/wigg2.jpg" alt="Chrisy Hair Studio featured hair style" /></a>
+            <a href="assets/wigg2.jpg"><img class="portrait-image" src="assets/wigg2.jpg" alt="Chrisy Hair Studio featured hair style" /></a>
             <div class="floating-card top-card">
               <strong>Soft. Full. Flawless.</strong>
               <small>Hair that completes the look</small>
@@ -207,15 +206,15 @@
           <p>Send a message to confirm product availability, prices, delivery options, and the perfect style for you.</p>
           <div class="contact-actions">
             <a class="btn btn-primary" href="https://wa.me/2349038425901?text=Hi%20Chrisy%20Hair%20Studio!%20I'm%20ready%20to%20place%20an%20order." target="_blank" rel="noopener">Order on WhatsApp</a>
-            <a class="btn btn-secondary" href="https://instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" rel="noopener">Message on Instagram</a>
+            <a class="btn btn-secondary" href="https://instagram.com/chrisy_hair_studio" target="_blank" rel="noopener">Message on Instagram</a>
           </div>
         </div>
         <div class="contact-card">
           <dl>
             <div><dt>WhatsApp</dt><dd><a href="https://wa.me/2349038425901">+234-903-842-5901</a></dd></div>
             <div><dt>Phone</dt><dd><a href="tel:+2349029073329">+234-902-907-3329</a></dd></div>
-            <div><dt>Instagram</dt><dd><a href="https://instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" rel="noopener">@YOUR_INSTAGRAM_HANDLE</a></dd></div>
-            <div><dt>Email</dt><dd><a href="mailto:yourbusiness@email.com">yourbusiness@email.com</a></dd></div>
+            <div><dt>Instagram</dt><dd><a href="https://instagram.com/chrisy_hair_studio" target="_blank" rel="noopener">@chrisy_hair_studio</a></dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:chrisyhairstudio@gmail.com">chrisyhairstudio@gmail.com</a></dd></div>
             <div><dt>Shipping</dt><dd>Deliver Nationwide</dd></div>
             <div><dt>Payment</dt><dd>Cash Or Transfer</dd></div>
           </dl>
@@ -227,11 +226,11 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <a class="brand footer-brand" href="#home"><img class="brand-logo" src="assets/chrisy-logo.jpg" alt="Chrisy Hair Studio logo" /><span>Chrisy Hair Studio</span></a>
+        <a class="brand footer-brand" href="#home-top"><img class="brand-logo" src="assets/chrisy-logo.jpg" alt="Chrisy Hair Studio logo" /><span>Chrisy Hair Studio</span></a>
         <p>Premium hair, beauty essentials, and confidence in every style.</p>
       </div>
       <div class="footer-links" aria-label="Footer navigation">
-        <a href="#home">Home</a>
+        <a href="#home-top">Home</a>
         <a href="#collection">Collection</a>
         <a href="#about">About</a>
         <a href="#reviews">Reviews</a>
@@ -242,6 +241,5 @@
   </footer>
 
   <script src="index.js"></script>
-
 </body>
 </html>
