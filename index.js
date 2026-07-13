@@ -4,7 +4,7 @@ const sendMetrics = () => parent.postMessage(
     type: 'web_page_metrics',
     height: document.body.scrollHeight,
     width: document.body.scrollWidth,
-    kind: 'static'
+    kind: 'smooth_scroll',
   },
   '*'
 );
